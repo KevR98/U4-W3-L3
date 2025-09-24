@@ -3,8 +3,6 @@ package kevinramil.Entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 // ENTITÀ
 @Entity
@@ -12,8 +10,6 @@ import java.util.List;
 // LISTA ATTRIBUTI SPECIFICANDO TABELLA E COLONNA
 @Table(name = "evento")
 public class Evento {
-    @OneToMany(mappedBy = "event_id")
-    List<Partecipazioni> partecipazioni = new ArrayList<>();
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,13 +26,12 @@ public class Evento {
     private int numeroMaxPartecipanti;
 
     // LISTA COSTRUTTORI
-    public Evento(String titolo, LocalDate dataInizioEvento, String descrizione, TipoEvento tipoEvento, int numeroMaxPartecipanti, List<Partecipazioni> partecipazioni) {
+    public Evento(String titolo, LocalDate dataInizioEvento, String descrizione, TipoEvento tipoEvento, int numeroMaxPartecipanti) {
         this.titolo = titolo;
         this.dataInizioEvento = dataInizioEvento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.numeroMaxPartecipanti = numeroMaxPartecipanti;
-        this.partecipazioni = partecipazioni;
     }
 
     // COSTRUTTORE DELLE ENTITÀ VUOTO

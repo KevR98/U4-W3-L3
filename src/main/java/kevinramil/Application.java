@@ -37,7 +37,7 @@ public class Application {
         locationDao.save(location);
 
         // Salva un evento
-        Evento evento = new Evento("Java Conference", LocalDate.of(2024, 10, 10), "Conferenza Java", TipoEvento.PUBBLICO, 100, listaPartecipazioni);
+        Evento evento = new Evento("Java Conference", LocalDate.of(2024, 10, 10), "Conferenza Java", TipoEvento.PUBBLICO, 100);
         eventoDao.save(evento);
 
         // Salva una partecipazione
